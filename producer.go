@@ -5,7 +5,7 @@ import (
 	"github.com/Shopify/sarama"
 )
 
-func producer_test() {
+func producerTest() {
 	fmt.Printf("producer_test\n")
 	config := sarama.NewConfig()
 	config.Producer.RequiredAcks = sarama.WaitForAll

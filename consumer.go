@@ -5,7 +5,7 @@ import (
 	"github.com/Shopify/sarama"
 )
 
-func consumer_test() {
+func consumerTest() {
 	fmt.Printf("consumer_test")
 
 	config := sarama.NewConfig()

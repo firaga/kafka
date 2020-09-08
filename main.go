@@ -19,10 +19,10 @@ func main() {
 	//os.Exit(0)
 	switch mod {
 	case ModP:
-		producer_test()
+		producerTest()
 	case ModC:
-		consumer_test()
+		consumerTest()
 	default:
-		metadata_test()
+		metadataTest()
 	}
 }
