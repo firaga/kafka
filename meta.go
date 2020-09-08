@@ -11,7 +11,7 @@ func metadataTest() {
 	fmt.Printf("metadata test\n")
 
 	config := sarama.NewConfig()
-	config.Version = sarama.V0_11_0_2
+	config.Version = sarama.V2_4_0_0
 
 	client, err := sarama.NewClient([]string{"localhost:9092", "localhost:9093", "localhost:9094"}, config)
 	if err != nil {
@@ -43,7 +43,7 @@ func metadataTest() {
 			fmt.Println("offset", offset)
 		}
 	}
-	client.RefreshCoordinator("user-log-to-es")
+	client.RefreshCoordinator("t user-log-to-es")
 	co,_ := client.Coordinator("user-log-to-es")
 	fmt.Println("codinator is ",co.Addr())
 

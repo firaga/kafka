@@ -10,7 +10,7 @@ func consumerTest() {
 
 	config := sarama.NewConfig()
 	config.Consumer.Return.Errors = true
-	config.Version = sarama.V0_11_0_2
+	config.Version = sarama.V2_4_0_0
 
 	// consumer
 	consumer, err := sarama.NewConsumer([]string{"localhost:9092"}, config)

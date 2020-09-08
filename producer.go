@@ -12,7 +12,7 @@ func producerTest() {
 	config.Producer.Partitioner = sarama.NewRandomPartitioner
 	config.Producer.Return.Successes = true
 	config.Producer.Return.Errors = true
-	config.Version = sarama.V0_11_0_2
+	config.Version = sarama.V2_4_0_0
 
 	producer, err := sarama.NewAsyncProducer([]string{"localhost:9092"}, config)
 	if err != nil {
