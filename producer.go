@@ -1,6 +1,7 @@
 package main
 
 import (
+	"context"
 	"fmt"
 	"github.com/Shopify/sarama"
 )
@@ -39,9 +40,9 @@ func producerTest() {
 
 		select {
 		case suc := <-producer.Successes():
-			fmt.Printf("offset: %d,  timestamp: %s", suc.Offset, suc.Timestamp.String())
+			fmt.Printf("offset: %d,  timestamp: %s", suc.Offset, suc.Timestamp.String(), "\n")
 		case fail := <-producer.Errors():
-			fmt.Printf("err: %s\n", fail.Err.Error())
+			fmt.Printf("err: %s\n", fail.Err.Error(), "\n")
 		}
 	}
 }

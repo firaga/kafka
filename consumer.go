@@ -21,19 +21,19 @@ func consumerTest() {
 
 	defer consumer.Close()
 
-	partition_consumer, err := consumer.ConsumePartition("kafka_go_test", 0, sarama.OffsetNewest)
+	partitionConsumer, err := consumer.ConsumePartition("kafka_go_test", 0, sarama.OffsetNewest)
 	if err != nil {
 		fmt.Printf("try create partition_consumer error %s\n", err.Error())
 		return
 	}
-	defer partition_consumer.Close()
+	defer partitionConsumer.Close()
 
 	for {
 		select {
-		case msg := <-partition_consumer.Messages():
+		case msg := <-partitionConsumer.Messages():
 			fmt.Printf("msg offset: %d, partition: %d, timestamp: %s, value: %s,key:%s \n",
 				msg.Offset, msg.Partition, msg.Timestamp.String(), string(msg.Value), msg.Key)
-		case err := <-partition_consumer.Errors():
+		case err := <-partitionConsumer.Errors():
 			fmt.Printf("err :%s\n", err.Error())
 		}
 	}
