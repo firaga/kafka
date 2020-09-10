@@ -6,9 +6,10 @@ import (
 )
 
 const (
-	ModP = "p"
-	ModC = "c"
-	ModM = "m"
+	ModP  = "p"
+	ModC  = "c"
+	ModM  = "m"
+	ModSP = "sp"
 )
 
 func main() {
@@ -22,6 +23,8 @@ func main() {
 		producerTest()
 	case ModC:
 		consumerTest()
+	case ModSP:
+		syncProducerTest()
 	default:
 		metadataTest()
 	}
